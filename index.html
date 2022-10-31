@@ -6,15 +6,49 @@
             function getComputerChoice() {
                 let randomChoiceNum = Math.floor(Math.random()*3)+1;
                 if(randomChoiceNum == 1) {
-                    return 'rock';
+                    return "rock";
                 }
                 else if(randomChoiceNum == 2) {
-                    return 'paper';
+                    return "paper";
                 }
                 else{ 
-                    return 'scissors';
+                    return "scissors";
                 }
             }
+            function playRound(playerSelection, computerSelection) {
+                playerSelectionLowerCase = playerSelection.toLowerCase();
+                computerSelectionLowerCase = computerSelection.toLowerCase();
+
+                if(playerSelectionLowerCase==computerSelectionLowerCase) {
+                    return "It's a tie!";
+                }
+                else if(playerSelectionLowerCase=="rock") {
+                    if(computerSelectionLowerCase=="paper") {
+                        return "You lose! Paper beats Rock";
+                    }
+                    else{
+                        return "You win! Rock beats Scissors";
+                    }
+                }
+
+                else if(playerSelectionLowerCase=="paper") {
+                    if(computerSelectionLowerCase=="scissors") {
+                        return "You lose! Scissors beats Paper";
+                    }
+                    else{
+                        return "You win! Paper beats Rock";
+                    }
+                }
+                else {
+                    if(computerSelectionLowerCase=="rock") {
+                        return "You lose! Rock beats Scissors";
+                    }
+                    else{ 
+                        return "You win! Scissors beats Paper";
+                    }
+                }
+            }
+            
         </script>
     </head>
     <body>
