@@ -3,10 +3,21 @@
     <head>
         <title>Rock-Paper-Scissors</title>
         <script>
-
+            function getComputerChoice() {
+                let randomChoiceNum = Math.floor(Math.random()*3)+1;
+                if(randomChoiceNum == 1) {
+                    return 'rock';
+                }
+                else if(randomChoiceNum == 2) {
+                    return 'paper';
+                }
+                else{ 
+                    return 'scissors';
+                }
+            }
         </script>
     </head>
     <body>
-        
+
     </body>
 </html>
