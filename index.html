@@ -59,7 +59,9 @@
             }
             function Game() {
                 for(let i = 0;i < 5;i++) {
-                    playRound();
+                    let playerSelection = getPlayerSelection();
+                    let computerSelection = getComputerChoice();
+                    playRound(playerSelection, computerSelection);
                 }
                 finalResult();
             }
