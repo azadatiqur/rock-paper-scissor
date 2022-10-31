@@ -24,31 +24,49 @@
                 }
                 else if(playerSelectionLowerCase=="rock") {
                     if(computerSelectionLowerCase=="paper") {
+                        computerScore++;
                         return "You lose! Paper beats Rock";
                     }
                     else{
+                        playerScore++;
                         return "You win! Rock beats Scissors";
                     }
                 }
 
                 else if(playerSelectionLowerCase=="paper") {
                     if(computerSelectionLowerCase=="scissors") {
+                        computerScore++;
                         return "You lose! Scissors beats Paper";
                     }
                     else{
+                        playerScore++;
                         return "You win! Paper beats Rock";
                     }
                 }
                 else {
                     if(computerSelectionLowerCase=="rock") {
+                        computerScore++;
                         return "You lose! Rock beats Scissors";
                     }
                     else{ 
+                        playerScore++;
                         return "You win! Scissors beats Paper";
                     }
                 }
             }
-            
+            function Game() {
+                for(let i = 0;i < 5;i++) {
+                    playRound();
+                }
+                if(playerScore > computerScore) {
+                    return "Congratulations! You have won the game.";
+                }
+                else{
+                    return "You lose! Better luck next time.";
+                }
+            }
+            let playerScore = 0;
+            let computerScore = 0;
         </script>
     </head>
     <body>
