@@ -58,11 +58,16 @@
                 for(let i = 0;i < 5;i++) {
                     playRound();
                 }
+                finalResult();
+            }
+            function finalResult() {
                 if(playerScore > computerScore) {
-                    return "Congratulations! You have won the game.";
+                    return `Your Score: ${playerScore}; Computer's Score: ${computerScore}
+                    Congratulations! You have won the game.`;
                 }
                 else{
-                    return "You lose! Better luck next time.";
+                    return `Your Score: ${playerScore}; Computer's Score: ${computerScore}
+                    You lose! Better luck next time.`;
                 }
             }
             let playerScore = 0;
