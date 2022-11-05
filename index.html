@@ -2,86 +2,97 @@
 <html lang="eng">
     <head>
         <title>Rock-Paper-Scissors</title>
-        <script>
-            function getComputerChoice() {
-                let randomChoiceNum = Math.floor(Math.random()*3)+1;
-                if(randomChoiceNum == 1) {
-                    return "rock";
-                }
-                else if(randomChoiceNum == 2) {
-                    return "paper";
-                }
-                else{ 
-                    return "scissors";
-                }
-            }
-            function playRound(playerSelection, computerSelection) {
-                playerSelectionLowerCase = playerSelection.toLowerCase();
-                computerSelectionLowerCase = computerSelection.toLowerCase();
-
-                if(playerSelectionLowerCase==computerSelectionLowerCase) {
-                    return "It's a tie!";
-                }
-                else if(playerSelectionLowerCase=="rock") {
-                    if(computerSelectionLowerCase=="paper") {
-                        computerScore++;
-                        return "You lose! Paper beats Rock";
-                    }
-                    else{
-                        playerScore++;
-                        return "You win! Rock beats Scissors";
-                    }
-                }
-
-                else if(playerSelectionLowerCase=="paper") {
-                    if(computerSelectionLowerCase=="scissors") {
-                        computerScore++;
-                        return "You lose! Scissors beats Paper";
-                    }
-                    else{
-                        playerScore++;
-                        return "You win! Paper beats Rock";
-                    }
-                }
-                else {
-                    if(computerSelectionLowerCase=="rock") {
-                        computerScore++;
-                        return "You lose! Rock beats Scissors";
-                    }
-                    else{ 
-                        playerScore++;
-                        return "You win! Scissors beats Paper";
-                    }
-                }
-            }
-            function getPlayerSelection() {
-                let playerSelection = prompt("What is your choice?");
-                return playerSelection;
-            }
-            function Game() {
-                for(let i = 0;i < 5;i++) {
-                    let playerSelection = getPlayerSelection();
-                    let computerSelection = getComputerChoice();
-                    console.log(playRound(playerSelection, computerSelection));
-                }
-                console.log(finalResult());
-            }
-            function finalResult() {
-                if(playerScore > computerScore) {
-                    return `Your Score: ${playerScore}; Computer's Score: ${computerScore}
-                    Congratulations! You have won the game.`;
-                }
-                else{
-                    return `Your Score: ${playerScore}; Computer's Score: ${computerScore}
-                    You lose! Better luck next time.`;
-                }
-            }
-            let playerScore = 0;
-            let computerScore = 0;
-            Game();
-        </script>
     </head>
     <body>
-
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
     </body>
+    <script>
+        function getComputerChoice() {
+            let randomChoiceNum = Math.floor(Math.random()*3)+1;
+            if(randomChoiceNum == 1) {
+                return "rock";
+            }
+            else if(randomChoiceNum == 2) {
+                return "paper";
+            }
+            else{ 
+                return "scissors";
+            }
+        }
+        function playRound(playerSelection, computerSelection) {
+            playerSelectionLowerCase = playerSelection.toLowerCase();
+            computerSelectionLowerCase = computerSelection.toLowerCase();
+
+            if(playerSelectionLowerCase==computerSelectionLowerCase) {
+                return "It's a tie!";
+            }
+            else if(playerSelectionLowerCase=="rock") {
+                if(computerSelectionLowerCase=="paper") {
+                    computerScore++;
+                    return "You lose! Paper beats Rock";
+                }
+                else{
+                    playerScore++;
+                    return "You win! Rock beats Scissors";
+                }
+            }
+
+            else if(playerSelectionLowerCase=="paper") {
+                if(computerSelectionLowerCase=="scissors") {
+                    computerScore++;
+                    return "You lose! Scissors beats Paper";
+                }
+                else{
+                    playerScore++;
+                    return "You win! Paper beats Rock";
+                }
+            }
+            else {
+                if(computerSelectionLowerCase=="rock") {
+                    computerScore++;
+                    return "You lose! Rock beats Scissors";
+                }
+                else{ 
+                    playerScore++;
+                    return "You win! Scissors beats Paper";
+                }
+            }
+        }
+        function getPlayerSelection() {
+            let playerSelection = prompt("What is your choice?");
+            return playerSelection;
+        }
+        
+        function finalResult() {
+            if(playerScore > computerScore) {
+                return `Your Score: ${playerScore}; Computer's Score: ${computerScore}
+                Congratulations! You have won the game.`;
+            }
+            else{
+                return `Your Score: ${playerScore}; Computer's Score: ${computerScore}
+                You lose! Better luck next time.`;
+            }
+        }
+        function printResult(e) {
+            console.log(e);
+        }
+        let playerScore = 0;
+        let computerScore = 0;
+        const btnRock = document.querySelector(".rock");
+        const btnPaper = document.querySelector(".paper");
+        const btnScissors = document.querySelector(".scissors");
+        btnRock.addEventListener("click", function() {
+            printResult(playRound('rock', getComputerChoice()));
+        });
+        btnPaper.addEventListener("click", function() {
+            printResult(playRound("paper", getComputerChoice()));
+        });
+        btnScissors.addEventListener("click", function() {
+            printResult(playRound("scissors", getComputerChoice()));
+        });
+       // btnPaper.addEventListener('click', printResult(playRound('paper', getComputerChoice())));
+        //btn
+    </script>
 </html>
