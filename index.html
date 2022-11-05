@@ -80,18 +80,38 @@
         }
         let playerScore = 0;
         let computerScore = 0;
+        const div = document.createElement("div");
         const btnRock = document.querySelector(".rock");
         const btnPaper = document.querySelector(".paper");
         const btnScissors = document.querySelector(".scissors");
+        function check() {
+            if(computerScore==5||playerScore==5) {
+                let winner = computerScore == 5 ? 'Computer' : 'You';
+                div.innerText = `${winner} won the game!`;
+                playerScore = 0;
+                computerScore = 0;
+            }
+        }
         btnRock.addEventListener("click", function() {
-            printResult(playRound('rock', getComputerChoice()));
+            let winnerText = playRound('rock', getComputerChoice())
+            div.innerText = `${winnerText}\n Computer Score: ${computerScore}\n Your Score: ${playerScore}`;
+            check();
         });
         btnPaper.addEventListener("click", function() {
-            printResult(playRound("paper", getComputerChoice()));
+            let winnerText = playRound('paper', getComputerChoice())
+            div.innerText = `${winnerText}\n Computer Score: ${computerScore}\n Your Score: ${playerScore}`;
+            check();
         });
         btnScissors.addEventListener("click", function() {
-            printResult(playRound("scissors", getComputerChoice()));
+            let winnerText = playRound('scissors', getComputerChoice())
+            div.innerText = `${winnerText}\n Computer Score: ${computerScore}\n Your Score: ${playerScore}`;
+            check();
         });
+
+        
+        
+        
+        document.body.appendChild(div);
        // btnPaper.addEventListener('click', printResult(playRound('paper', getComputerChoice())));
         //btn
     </script>
